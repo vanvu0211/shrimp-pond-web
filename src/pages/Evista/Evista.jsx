@@ -58,7 +58,7 @@ function Evista() {
   }, [selectedPondType]);
 
   const fetchPondTypes = async () => {
-    const url = 'http://shrimppond.runasp.net/api/PondType?pageSize=200&pageNumber=1';
+    const url = 'https://shrimppond.runasp.net/api/PondType?pageSize=200&pageNumber=1';
     try {
       const response = await axios.get(url);
       setPondTypes(
@@ -73,7 +73,7 @@ function Evista() {
   };
 
   const fetchPonds = async () => {
-    const url = 'http://shrimppond.runasp.net/api/Pond?pageSize=200&pageNumber=1';
+    const url = 'https://shrimppond.runasp.net/api/Pond?pageSize=200&pageNumber=1';
     try {
       const response = await axios.get(url);
       setPondOptions(
@@ -106,7 +106,7 @@ function Evista() {
     const formattedStartDate = formatDate(startDate);
     const formattedEndDate = formatDate(endDate);
 
-    const url = `http://shrimppond.runasp.net/api/Environment?pondId=${pond}&name=${parameter}&startDate=${formattedStartDate}&endDate=${formattedEndDate}&pageSize=200&pageNumber=1`;
+    const url = `https://shrimppond.runasp.net/api/Environment?pondId=${pond}&name=${parameter}&startDate=${formattedStartDate}&endDate=${formattedEndDate}&pageSize=200&pageNumber=1`;
     try {
       const response = await axios.get(url);
       // Reverse the array to get data from bottom to top

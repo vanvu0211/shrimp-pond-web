@@ -14,7 +14,7 @@ function StatusPage() {
     useEffect(() => {
         const fetchFarms = async () => {
             setLoading(true); // Start loading
-            const url = 'http://shrimppond.runasp.net/api/Farm?pageSize=200&pageNumber=1';
+            const url = 'https://shrimppond.runasp.net/api/Farm?pageSize=200&pageNumber=1';
             try {
                 const response = await axios.get(url);
                 const farmData = response.data.map((farm, index) => ({
@@ -48,7 +48,7 @@ function StatusPage() {
         const newFarm = { farmName, address: farmAddress };
         
         try {
-            const response = await axios.post('http://shrimppond.runasp.net/api/Farm', newFarm);
+            const response = await axios.post('https://shrimppond.runasp.net/api/Farm', newFarm);
             setFarms([...farms, { id: farms.length + 1, ...response.data }]);
             setFarmName('');
             setFarmAddress('');
@@ -60,7 +60,7 @@ function StatusPage() {
 
     const deleteFarm = async (farmName) => {
         try {
-            await axios.delete(`http://shrimppond.runasp.net/api/Farm?FarmName=${encodeURIComponent(farmName)}`);
+            await axios.delete(`https://shrimppond.runasp.net/api/Farm?FarmName=${encodeURIComponent(farmName)}`);
             // Cập nhật danh sách farms sau khi xóa thành công
             setFarms(farms.filter(farm => farm.name !== farmName));
         } catch (error) {
